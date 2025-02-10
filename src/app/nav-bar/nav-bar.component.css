@@ -8,6 +8,7 @@
   color: #555;
   font-family: Arial, sans-serif;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  flex-wrap: wrap; /* Allow items to wrap if needed */
 }
 
 /* Navbar-left */
@@ -51,13 +52,13 @@
   display: flex;
   margin: 0;
   padding: 0;
-  flex-direction: column; /* Stack items vertically on mobile */
+  flex-direction: row; /* Keep items in a row */
 }
 
 .navbar-right ul li {
   display: flex;
   align-items: center;
-  margin-bottom: 10px; /* Add spacing between items */
+  margin: 0 10px; /* Spacing between items */
 }
 
 .navbar-right ul li a {
@@ -76,23 +77,24 @@
 /* Responsive Styles */
 @media (max-width: 768px) {
   .navbar {
-    flex-direction: row; /* Stack navbar items */
-    align-items: flex-start;
+    flex-direction: row; /* Keep navbar horizontal */
+    align-items: center;
+    justify-content: space-between;
   }
 
   .navbar-right {
-    flex-direction: row; /* Stack right menu items vertically */
-    width: 100%;
-    margin-top: 10px;
+    flex-direction: row;
+    width: auto;
+    margin-top: 0;
   }
 
   .navbar-right ul {
     flex-direction: row;
-    width: 100%;
+    justify-self:space-around;
   }
 
   .navbar-right ul li {
-    margin: 5px 0; /* Spacing between items */
+    margin: 0 10px;
   }
 
   .search-form {
@@ -102,6 +104,38 @@
   }
 
   .search-container {
-    width: 100%; /* Adjust search bar width for mobile */
+    width: 100%;
   }
+  /* Ensure navbar items remain horizontal in mobile view */
+.navbar-nav {
+  flex-direction: row !important; /* Force horizontal layout */
+  align-items: center; /* Center items vertically */
+  justify-content: flex-end; /* Push items to the right */
+  gap: 25px; /* Add spacing between items */
+}
+
+.nav-item {
+  margin: 0; /* Remove any vertical margins added by Bootstrap */
+}
+.categories-link {
+  margin-left: 10px !important;
+}
+.categories-link {
+  margin-left: 10px !important;
+}
+.navbar-collapse {
+  flex-grow: 1 !important; /* Ensure it stretches across the available space */
+  justify-content: space-between; /* Separate left (logo) and right items */
+  align-items: center; /* Center items vertically */
+}
+.logo-img{
+  padding-top: 5px;
+  width: 160px;
+  height: 60px;
+  padding-bottom: 10px;
+}
+.navbar .categories-link {
+  margin-left: 10px; /* Add spacing between search bar and Categories */
+  white-space: nowrap; /* Prevent wrapping */
+}
 }
